@@ -1,3 +1,15 @@
-// Branding overrides
-//
-// Copy variables from `_branding.scss` to this file to override default values.
+/** BRANDING COLORS
+ * primary (default pink): sidebar color, admitted dashboard status
+ * secondary (default purple): header text, submitted/confirmed/checked-in dashboard status
+ * tertiary (default blue): waitlist/declined dashboard status
+ */
+
+$primary: #e87324;
+$secondary: #B4876D;
+$tertiary: #514b47;
+
+/** ASSET URLS
+  * login-bg: image for login splash page 
+  */
+
+$login-bg: url('https://www.mcdonogh.org/static/images/cms/about/esj_crop_edit.jpg');
