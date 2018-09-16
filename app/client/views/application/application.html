@@ -6,7 +6,14 @@
   <div class="ui stackable page grid">
     <div class="column">
       <div class="ui form" ng-class="{'loading': loading}">
-
+        <p>Hi! Thanks for applying to join us at <strong>McDonogh Hacks I</strong>, McDonogh School's first open
+          hackathon!</p>
+        <p>Because our space is limited, we will need to know a little bit more about you for you to join us on
+          November 10. In order for us to get a better hold of who you are, please make sure your response is as
+          thorough and
+          detailed as possible!</p>
+        <p>Good luck, and we're looking forward to reading your application!</p>
+        <br />
         <div class="divided title">Basic Information</div>
 
         <fieldset ng-disabled="regIsClosed">
@@ -48,6 +55,36 @@
             </select>
           </div>
 
+          <!-- Demographic Information -->
+
+          <br />
+          <div class="divided title">Demographic Information</div>
+
+          <div class="ui grid">
+            <div class="two column row">
+              <div class="column">
+                <div class="field">
+                  <label> City of Residence </label>
+                  <input type="text" name="city" ng-model="user.profile.city">
+                </div>
+              </div>
+
+              <div class="column">
+                <div class="field">
+                  <label> State of Residence </label>
+                  <div id="state" class="ui search">
+                    <div class="ui input">
+                      <input class="prompt" type="text" name="state" ng-model="user.profile.state">
+                    </div>
+                    <div class="results"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <small>Due to legal restrictions, we are unable to accept international students.</small>
+          <br />
+
           <div class="field">
             <label>Gender</label>
             <select name="gender" ng-model="user.profile.gender">
@@ -65,14 +102,28 @@
           </div>
 
           <div class="field">
-            <label>
-              What would you like to learn or get out of McDonogh Hacks I? (optional)
-            </label>
-            <textarea ng-model="user.profile.essay">
-          </textarea>
+            <label>If accepted, will McDonogh Hacks I be your first hackathon?</label>
+            <select name="first-hackathon" ng-model="user.profile.firstHackathon">
+              <option value="" disabled>-</option>
+              <option value="Y">Yes</option>
+              <option value="N">No</option>
+            </select>
           </div>
 
-          <br>
+          <br />
+          <div class="divided title">Application Questions</div>
+          <div class="field">
+            <label>
+              What would you like to learn or get out of McDonogh Hacks I?<br />
+              <span style="color: gray">Please feel free to submit a written response, a short video response, an MP3,
+                or other mode of
+                communication. Simply cut and paste a link into the section below.</span>
+            </label>
+            <textarea ng-model="user.profile.essay">
+            </textarea>
+          </div>
+
+          <br />
 
           <div class="field" ng-hide="regIsClosed">
             <button type="submit" class="fluid ui purple button" ng-click="submitForm()">

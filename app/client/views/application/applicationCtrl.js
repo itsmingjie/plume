@@ -23,6 +23,9 @@ angular.module('reg')
 
       // Populate the school dropdown
       populateSchools();
+
+      // Populate the states dropdown
+      populateStates();
       _setupForm();
 
       $scope.regIsClosed = Date.now() > Settings.data.timeClose;
@@ -64,6 +67,33 @@ angular.module('reg')
                 cache: true,
                 onSelect: function (result, response) {
                   $scope.user.profile.school = result.title.trim();
+                }
+              })
+          });
+      }
+
+      function populateStates() {
+        $http
+          .get('/assets/states.csv')
+          .then(function (res) {
+            $scope.states = res.data.split('\n');
+            $scope.states.push('Other');
+
+            var content = [];
+
+            for (i = 0; i < $scope.states.length; i++) {
+              $scope.states[i] = $scope.states[i].trim();
+              content.push({
+                title: $scope.states[i]
+              })
+            }
+
+            $('#state.ui.search')
+              .search({
+                source: content,
+                cache: true,
+                onSelect: function (result, response) {
+                  $scope.user.profile.state = result.title.trim();
                 }
               })
           });
