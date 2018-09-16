@@ -44,6 +44,12 @@ var profile = {
     max: 1500
   },
 
+  funFact: {
+    type: String,
+    min: 0,
+    max: 1500
+  },
+
   // Optional info for demographics
   gender: {
     type: String,

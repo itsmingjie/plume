@@ -123,8 +123,19 @@
             </textarea>
           </div>
 
-          <br />
+          <div class="field">
+            <label>
+              Anything interesting about you that you would like us to know about?<br />
+            </label>
+            <textarea ng-model="user.profile.funFact">
+            </textarea>
+          </div>
 
+          <p>Note that your application will be manually reviewed by McDonogh Hacks organizers. We'll be following up
+            about the status of your application, so please expect an email from us very soon!</p>
+          <p><strong>By submitting the application, you agree to the <a href="https://www.mcdonogh.org/privacy-policy"
+                target="_blank">McDonogh
+                School Privacy Policy</a>.</strong></p>
           <div class="field" ng-hide="regIsClosed">
             <button type="submit" class="fluid ui purple button" ng-click="submitForm()">
               Submit
