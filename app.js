@@ -1,6 +1,3 @@
-// Load APM
-require('newrelic');
-
 // Load the dotfiles.
 require('dotenv').load({
   silent: true
