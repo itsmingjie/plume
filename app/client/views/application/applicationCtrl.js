@@ -198,8 +198,6 @@ angular.module('reg')
                 });
             }
 
-
-
             $scope.submitForm = function () {
                 if ($('.ui.form').form('is valid')) {
                     _updateUser();
@@ -210,3 +208,4 @@ angular.module('reg')
 
         }
     ]);
+

@@ -34,6 +34,11 @@ var profile = {
     type: String
   },
 
+  hasLaptop: Boolean,
+  csAvailable: Boolean,
+  csEnrolled: Boolean,
+  firstHackathon: Boolean,
+
   // Optional info for demographics
   gender: {
     type: String,
@@ -338,7 +343,7 @@ schema.statics.validateProfile = function (profile, cb) {
   return cb(!(
     profile.name.length > 0 &&
     profile.adult &&
-    profile.school.length > 0 && ['2016', '2017', '2018', '2019'].indexOf(profile.graduationYear) > -1 && ['M', 'F', 'O', 'N'].indexOf(profile.gender) > -1
+    profile.school.length > 0 && ['2019', '2020', '2021', '2022', '2023'].indexOf(profile.graduationYear) > -1 && ['M', 'F', 'O', 'N'].indexOf(profile.gender) > -1
   ));
 };
 
