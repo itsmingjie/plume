@@ -18,3 +18,8 @@ $login-bg: url('https://mcdonoghhacks.org/img/banner.jpg');
 #sidebar a {
     color: white;
 }
+
+.ui.brand.button,
+.ui.brand.buttons .button {
+    background-color: $primary;
+}
