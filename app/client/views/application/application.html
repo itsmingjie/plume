@@ -97,29 +97,47 @@
           </div>
 
           <div class="field">
-            <label>I would describe myself as a...</label>
-            <input type="text" placeholder="Designer, Data Scientist, iOS Wizard, Hacker Extraordinaire" ng-model="user.profile.description">
+            <label>
+              If accepted, will McDonogh Hacks I be your first hackathon?
+            </label>
+            <div class="ui checkbox">
+              <input type="checkbox" ng-model="user.profile.firstHackathon">
+              <label> Yes, McDonogh Hacks I will be my first hackathon. </label>
+            </div>
           </div>
 
           <div class="field">
-            <label>If accepted, will McDonogh Hacks I be your first hackathon?</label>
-            <select name="first-hackathon" ng-model="user.profile.firstHackathon">
-              <option value="" disabled>-</option>
-              <option value="Y">Yes</option>
-              <option value="N">No</option>
-            </select>
+            <label>
+              Do you have your own laptop?
+            </label>
+            <div class="ui checkbox">
+              <input type="checkbox" ng-model="user.profile.hasLaptop">
+              <label> Yes, I have my own laptop and will be able to bring it to the event. </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>
+              Does your school offer computer science classes/programs?
+            </label>
+            <div class="ui checkbox">
+              <input type="checkbox" ng-model="user.profile.csAvailable">
+              <label> Yes, my school offers at least 1 computer science or related course. </label>
+            </div>
+
+            <div class="ui checkbox">
+              <input type="checkbox" ng-model="user.profile.csEnrolled">
+              <label> Yes, I am enrolled in a computer science or related course. </label>
+            </div>
           </div>
 
           <br />
           <div class="divided title">Application Questions</div>
+
           <div class="field">
-            <label>
-              Does your school offer computer science classes? If so, are you currently enrolled in these classes?<br />
-              <span style="color: gray">Please briefly describe the degree of exposure you have towards computer
-                science classes.</span>
-            </label>
-            <textarea ng-model="user.profile.essay">
-            </textarea>
+            <label>I would describe myself as a...</label>
+            <input type="text" name="description" placeholder="Designer, Data Scientist, iOS Wizard, Hacker Extraordinaire"
+              ng-model="user.profile.description">
           </div>
 
           <div class="field">
@@ -130,6 +148,31 @@
             </textarea>
           </div>
 
+          <br />
+          <div class="divided title">Recommendation</div>
+
+          <p>We require applicants to be sponsored by a recognized organization in Baltimore City (e.g., school,
+            church, or community organization). <strong>Don't have a sponsor yet? Don't worry.</strong> Talk to a
+            school teacher or a community organization first, and provide the name of the organization here. The
+            sponsorship form can be submitted after submitting your application.</p>
+
+          <div class="field">
+            <label>What is the name of your sponsoring organization?</label>
+            <input type="text" name="sponsor-name" ng-model="user.sponsor.name">
+          </div>
+          <div class="field">
+            <label>
+              Has your sponsor submitted the student sponsorship form yet?
+            </label>
+            <div class="ui checkbox">
+              <input type="checkbox" ng-model="user.sponsor.recSubmitted">
+              <label> My sponsor organization has already submitted the student sponsorship form. </label>
+            </div>
+          </div>
+
+          <br />
+          <div class="divided title">Almost there...</div>
+
           <p>Note that your application will be manually reviewed by McDonogh Hacks organizers. We'll be following up
             about the status of your application, so <strong>please expect an email from us very soon</strong>! You may
             be required to
@@ -138,8 +181,9 @@
                 target="_blank">McDonogh
                 School Privacy Policy</a>.</strong></p>
           <div class="field" ng-hide="regIsClosed">
-            <button type="submit" class="fluid ui purple button" ng-click="submitForm()">
-              Submit
+            <button type="submit" class="fluid ui right labeled icon red button" ng-click="submitForm()">
+              Save Application
+              <i class="checkmark icon"></i>
             </button>
           </div>
 

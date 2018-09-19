@@ -13,14 +13,6 @@ angular.module('reg')
       // Set up the user
       $scope.user = currentUser.data;
 
-      // Is the student from MIT?
-      $scope.isMitStudent = $scope.user.email.split('@')[1] == 'mit.edu';
-
-      // If so, default them to adult: true
-      if ($scope.isMitStudent) {
-        $scope.user.profile.adult = true;
-      }
-
       // Populate the school dropdown
       populateSchools();
 
@@ -171,11 +163,18 @@ angular.module('reg')
                 prompt: 'Please select a gender.'
               }]
             },
-            adult: {
-              identifier: 'adult',
+            description: {
+              identifier: 'description',
               rules: [{
-                type: 'allowMinors',
-                prompt: 'You must be an adult, or an MIT student.'
+                type: 'empty',
+                prompt: 'Please provide a brief description'
+              }]
+            },
+            sponsorName: {
+              identifier: 'sponsor-name',
+              rules: [{
+                type: 'empty',
+                prompt: 'You must provide a sponsor'
               }]
             }
           }

@@ -38,17 +38,16 @@ var profile = {
     max: 300
   },
 
-  essay: {
-    type: String,
-    min: 0,
-    max: 1500
-  },
-
   funFact: {
     type: String,
     min: 0,
     max: 1500
   },
+
+  hasLaptop: Boolean,
+  csAvailable: Boolean,
+  csEnrolled: Boolean,
+  firstHackathon: Boolean,
 
   // Optional info for demographics
   gender: {
@@ -60,16 +59,19 @@ var profile = {
 
   state: {
     type: String
-  },
-
-  firstHackathon: {
-    type: String,
-    enum: {
-      values: 'Y N'.split(' ')
-    }
   }
-
 };
+
+var sponsor = {
+  name: String,
+  // for internal use only
+  contact: {
+    name: String,
+    phone: String,
+    email: String
+  },
+  recSubmitted: Boolean
+}
 
 // Only after confirmed
 var confirmation = {
