@@ -19,15 +19,6 @@ var adminConfig = require('./config/admin');
 
 var app = express();
 
-var dgram = require('dgram');
-var apikey = process.env.HOSTEDGRAPHITE_APIKEY;
-
-var message = new Buffer(apikey + ".request.time 1444\n");
-var client = dgram.createSocket("udp4");
-client.send(message, 0, message.length, 2003, "carbon.hostedgraphite.com", function (err, bytes) {
-  client.close();
-});
-
 // Connect to mongodb
 mongoose.connect(database);
 
