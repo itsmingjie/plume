@@ -1,15 +1,20 @@
 #dashboard {
   .status {
     text-align: center;
-    p {
-      text-align: left;
+
+    p,
+    .ng-binding {
+      text-align: center;
     }
+
     .button {
       margin-top: 12px;
     }
+
     .header {
       font-size: 1.2em;
     }
+
     .state {
       text-align: center;
       padding: 12px 24px;
@@ -59,6 +64,7 @@
 
   .description {
     margin-bottom: 24px;
+
     .markdown {
       text-align: left;
       margin-bottom: 24px;

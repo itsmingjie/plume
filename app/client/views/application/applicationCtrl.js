@@ -170,6 +170,23 @@ angular.module('reg')
                                 prompt: 'Please provide a brief description'
                             }]
                         },
+
+                        state: {
+                            identifier: 'state',
+                            rules: [{
+                                type: 'empty',
+                                prompt: 'Please enter your state of residence'
+                            }]
+                        },
+
+                        city: {
+                            identifier: 'city',
+                            rules: [{
+                                type: 'empty',
+                                prompt: 'Please enter your city of residence'
+                            }]
+                        },
+
                         sponsorName: {
                             identifier: 'sponsor-name',
                             rules: [{
