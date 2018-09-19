@@ -15,7 +15,7 @@
 
         <div ng-show="loginState === 'login'">
           <div class="ui login-password form">
-            <form ng-submit="login()">
+            <form ng-submit="register()">
               <div class="field">
                 <label> Email</label>
                 <input type="email" id='email' placeholder="foo@bar.edu" ng-model="email">
@@ -26,7 +26,6 @@
                   required>
               </div>
               <div class="field">
-
                 <button id="register" type="submit" class="fluid ui register button" ng-click="register()">
                   Register
                 </button>
@@ -38,7 +37,7 @@
             <div class="ui divider"></div>
             <p style="font-size:  83%">Registed already? Log in with your email address.</p>
             <div class="field">
-              <button id="login-password" type="submit" class="fluid ui login button">
+              <button id="login-password" type="submit" class="fluid ui login button" ng-click="login()">
                 Login
               </button>
             </div>
