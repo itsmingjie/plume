@@ -19,6 +19,17 @@ var adminConfig = require('./config/admin');
 
 var app = express();
 
+// include and initialize the rollbar library
+var Rollbar = require("rollbar");
+var rollbar = new Rollbar({
+  accessToken: '102baf521af6406e818e792790758235',
+  captureUncaught: true,
+  captureUnhandledRejections: true
+});
+
+// record a generic message and send it to Rollbar
+rollbar.log("Hello world!");
+
 function requireHTTPS(req, res, next) {
   // The 'x-forwarded-proto' check is for Heroku
   if (!req.secure && req.get('x-forwarded-proto') !== 'https' && process.env.NODE_ENV !== "development") {
