@@ -185,14 +185,6 @@ angular.module('reg')
                                 type: 'empty',
                                 prompt: 'Please enter your city of residence'
                             }]
-                        },
-
-                        sponsorName: {
-                            identifier: 'sponsor-name',
-                            rules: [{
-                                type: 'empty',
-                                prompt: 'You must provide a sponsor'
-                            }]
                         }
                     }
                 });
