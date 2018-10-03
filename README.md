@@ -1,5 +1,5 @@
 # Plume
-An adaptation of Hack MIT's [Quill](https://github.com/techx/quill) platform for McDonogh Hacks I. Hosted on Heroku.
+An adaptation of Hack MIT's [Quill](https://github.com/techx/quill) platform for [McDonogh Hacks I](https://mcdonoghhacks.org). Hosted on Heroku.
 
 # Setup
 
@@ -45,10 +45,7 @@ gulp server
 ```
 
 # Contributing
-Contributions to Quill are welcome and appreciated! Please take a look at [`CONTRIBUTING.md`][contribute] first.
-
-# Feedback / Questions
-If you have any questions about this software, please contact [quill@hackmit.org][email].
+Contributions to Plume are welcome and appreciated! Please take a look at [`CONTRIBUTING.md`][contribute] first.
 
 # License
 Copyright (c) 2015-2016 Edwin Zhang (https://github.com/ehzhang). Released under AGPLv3. See [`LICENSE.txt`][license] for details.
