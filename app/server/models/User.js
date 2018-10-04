@@ -56,24 +56,6 @@ var profile = {
 		type: String,
 		min: 0,
 		max: 1500
-	},
-
-	sponsor: {
-		name: {
-			type: String
-		},
-		contact: {
-			name: {
-				type: String
-			},
-			email: {
-				type: String
-			},
-			phone: {
-				type: String
-			}
-		},
-		recSubmitted: Boolean
 	}
 };
 
