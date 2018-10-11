@@ -149,6 +149,53 @@
           <br>
           <br>
 
+          <div class="divided title">Emergency Medical Information</div>
+
+          Please fill out these emergency medical contact information so we know who to reach out to in case something happens.
+          <br /><br />
+
+          <p><strong>Emergency Primary Contact (Required)</strong></p>
+          <div class="three fields">
+              <div class="field">
+                <label> Name </label>
+                <input type="text" name="emergencyContactName1" ng-model="user.confirmation.emergency.primary.name">
+              </div>
+              <div class="field">
+                <label> Relationship </label>
+                <input type="text" name="emergencyContactRel1" ng-model="user.confirmation.emergency.primary.relationship" placeholder="Mother/Father/etc.">
+              </div>
+              <div class="field">
+                  <label> ZIP </label>
+                  <input type="tel" name="emergencyContactPhone1" ng-model="user.confirmation.emergency.primary.phone" placeholder="(123) - 555 - 1234">
+                </div>
+            </div>
+
+
+            <p><strong>Emergency Secondary Contact</strong></p>
+            <div class="three fields">
+                <div class="field">
+                  <label> Name </label>
+                  <input type="text" name="emergencyContactName2" ng-model="user.confirmation.emergency.secondary.name">
+                </div>
+                <div class="field">
+                  <label> Relationship </label>
+                  <input type="text" name="emergencyContactRel2" ng-model="user.confirmation.emergency.secondary.relationship" placeholder="Mother/Father/etc.">
+                </div>
+                <div class="field">
+                    <label> ZIP </label>
+                    <input type="tel" name="emergencyContactPhone2" ng-model="user.confirmation.emergency.secondary.phone" placeholder="(123) - 555 - 1234">
+                  </div>
+              </div>
+
+              <div class="field">
+                  <label>
+                      Medical Considerations (e.g., allergies, etc.)
+                  </label>
+                  <textarea ng-model="user.confirmation.emergency.medCons"></textarea>
+                </div>
+          <br>
+          <br>
+
           <div class="divided title">everything else</div>
 
           <div class="field">

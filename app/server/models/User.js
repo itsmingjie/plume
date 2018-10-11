@@ -81,6 +81,23 @@ var confirmation = {
 
 	signatureWaiver: String,
 	waiverSignedByAdult: Boolean,
+
+	emergency: {
+		primary: {
+			name: String,
+			relationship: String,
+			phone: String,
+		},
+
+		secondary: {
+			name: String,
+			relationship: String,
+			phone: String,
+		},
+
+		// medical considerations
+		medCons: String,
+	}
 };
 
 var status = {

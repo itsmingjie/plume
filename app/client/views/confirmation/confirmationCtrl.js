@@ -102,6 +102,37 @@ angular.module('reg')
                 }
               ]
             },
+
+            emergencyContactName: {
+              identifier: 'emergencyContactName1',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Please provide the complete information of at least 1 emergency contact'
+                }
+              ]
+            },
+
+            emergencyContactRel: {
+              identifier: 'emergencyContactRel1',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Please provide the complete information of at least 1 emergency contact'
+                }
+              ]
+            },
+
+            emergencyContactPhone: {
+              identifier: 'emergencyContactPhone1',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Please provide the complete information of at least 1 emergency contact'
+                }
+              ]
+            },
+
           }
         });
       }
