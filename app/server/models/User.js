@@ -79,9 +79,8 @@ var confirmation = {
 
 	notes: String,
 
-	signatureLiability: String,
-	signaturePhotoRelease: String,
-	signatureCodeOfConduct: String
+	signatureWaiver: String,
+	waiverSignedByAdult: Boolean,
 };
 
 var status = {
