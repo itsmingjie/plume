@@ -79,9 +79,25 @@ var confirmation = {
 
 	notes: String,
 
-	signatureLiability: String,
-	signaturePhotoRelease: String,
-	signatureCodeOfConduct: String
+	signatureWaiver: String,
+	waiverSignedByAdult: Boolean,
+
+	emergency: {
+		primary: {
+			name: String,
+			relationship: String,
+			phone: String,
+		},
+
+		secondary: {
+			name: String,
+			relationship: String,
+			phone: String,
+		},
+
+		// medical considerations
+		medCons: String,
+	}
 };
 
 var status = {

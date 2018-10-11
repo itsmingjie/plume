@@ -93,8 +93,8 @@ angular.module('reg')
                 }
               ]
             },
-            signatureLiability: {
-              identifier: 'signatureLiabilityWaiver',
+            signatureWaiver: {
+              identifier: 'signatureWaiver',
               rules: [
                 {
                   type: 'empty',
@@ -102,24 +102,37 @@ angular.module('reg')
                 }
               ]
             },
-            signaturePhotoRelease: {
-              identifier: 'signaturePhotoRelease',
+
+            emergencyContactName: {
+              identifier: 'emergencyContactName1',
               rules: [
                 {
                   type: 'empty',
-                  prompt: 'Please type your digital signature.'
+                  prompt: 'Please provide the complete information of at least 1 emergency contact'
                 }
               ]
             },
-            signatureCodeOfConduct: {
-              identifier: 'signatureCodeOfConduct',
+
+            emergencyContactRel: {
+              identifier: 'emergencyContactRel1',
               rules: [
                 {
                   type: 'empty',
-                  prompt: 'Please type your digital signature.'
+                  prompt: 'Please provide the complete information of at least 1 emergency contact'
                 }
               ]
             },
+
+            emergencyContactPhone: {
+              identifier: 'emergencyContactPhone1',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'Please provide the complete information of at least 1 emergency contact'
+                }
+              ]
+            },
+
           }
         });
       }

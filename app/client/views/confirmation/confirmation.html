@@ -121,54 +121,78 @@
           <div class="divided title">Legal</div>
 
           <div class="field">
-            <label> Liability Waiver </label>
+            <label> Liability Waiver / Photo Release Form / Code of Conduct </label>
             <p>
-              <a target="_blank" href="https://go.hackmit.org/liability-waiver">
-                Liability Waiver
+              <a class="ui labeled icon purple button" target="_blank" href="/assets/waiver.pdf">
+                Click here to view legal documents
+                <i class="eye icon"></i>
               </a>
             </p>
             <p>
-              For legal reasons, our school asks that you read and accept the terms of our liability waiver.</strong>
+              For legal reasons, our school asks that you read and accept the terms of our liability waiver, photo release form, as well as our event Code of Conduct. The waiver that includes all three documents can be viewed by click on the link above.
             </p>
             <p>
-              By writing my name below, I affirm that I have read and accepted the terms of the liability waiver above.
+                <strong>If you are under 18, we request that you ask your parent/guardian to sign this waiver on your behalf.</strong>
             </p>
-            <input type="text" name="signatureLiabilityWaiver" placeholder="Your Full Legal Name" ng-model="user.confirmation.signatureLiability">
+            <p>
+              By writing my name below, I affirm that I have read and accepted the terms of all forms mentioned above.
+            </p>
+            <input type="text" name="signatureWaiver" placeholder="Full Legal Name of Attendee/Parent/Guardian (Whichever Applies)" ng-model="user.confirmation.signatureWaiver">
           </div>
-
           <div class="field">
-            <label> Photo Release </label>
-            <p>
-              <a target="_blank" href="https://go.hackmit.org/photo-release">
-                Photo Release
-              </a>
-            </p>
-            <p>
-              Signing this photo release means if we take photos or photos of you, we can share it with the world.
-            </p>
-            <p>
-              By writing my name below, I affirm that I have read and accepted the terms of the photo release above.
-            </p>
-            <input type="text" name="signaturePhotoRelease" placeholder="Your Full Legal Name" ng-model="user.confirmation.signaturePhotoRelease">
+              <div class="ui checkbox">
+                <input type="checkbox" ng-model="user.confirmation.waiverSignedByAdult">
+                <label> I am signing this waiver on behalf of my student, who is under the legal age of 18. </label>
+              </div>
           </div>
 
-          <div class="field">
-            <label> Code of Conduct </label>
-            <p>
-              <a target="_blank" href="https://go.hackmit.org/code-of-conduct">
-                Hacker Code of Conduct
-              </a>
-            </p>
-            <p>
-              It is extremely important to us that attendees follow a set of guidelines to make the event fun for
-              everyone involved. Please read through and make sure you understand what we will be expecting of you.
-            </p>
-            <p>
-              By writing my name below, I affirm that I have read and will abide by the code of conduct detailed above.
-            </p>
-            <input type="text" name="signatureCodeOfConduct" placeholder="Your Full Legal Name" ng-model="user.confirmation.signatureCodeOfConduct">
-          </div>
+          <br>
+          <br>
 
+          <div class="divided title">Emergency Medical Information</div>
+
+          Please fill out these emergency medical contact information so we know who to reach out to in case something happens.
+          <br /><br />
+
+          <p><strong>Emergency Primary Contact (Required)</strong></p>
+          <div class="three fields">
+              <div class="field">
+                <label> Name </label>
+                <input type="text" name="emergencyContactName1" ng-model="user.confirmation.emergency.primary.name">
+              </div>
+              <div class="field">
+                <label> Relationship </label>
+                <input type="text" name="emergencyContactRel1" ng-model="user.confirmation.emergency.primary.relationship" placeholder="Mother/Father/etc.">
+              </div>
+              <div class="field">
+                  <label> ZIP </label>
+                  <input type="tel" name="emergencyContactPhone1" ng-model="user.confirmation.emergency.primary.phone" placeholder="(123) - 555 - 1234">
+                </div>
+            </div>
+
+
+            <p><strong>Emergency Secondary Contact</strong></p>
+            <div class="three fields">
+                <div class="field">
+                  <label> Name </label>
+                  <input type="text" name="emergencyContactName2" ng-model="user.confirmation.emergency.secondary.name">
+                </div>
+                <div class="field">
+                  <label> Relationship </label>
+                  <input type="text" name="emergencyContactRel2" ng-model="user.confirmation.emergency.secondary.relationship" placeholder="Mother/Father/etc.">
+                </div>
+                <div class="field">
+                    <label> ZIP </label>
+                    <input type="tel" name="emergencyContactPhone2" ng-model="user.confirmation.emergency.secondary.phone" placeholder="(123) - 555 - 1234">
+                  </div>
+              </div>
+
+              <div class="field">
+                  <label>
+                      Medical Considerations (e.g., allergies, etc.)
+                  </label>
+                  <textarea ng-model="user.confirmation.emergency.medCons"></textarea>
+                </div>
           <br>
           <br>
 
@@ -186,7 +210,7 @@
 
           <div class="field" ng-hide="regIsClosed">
             <button type="submit" class="fluid ui right labeled icon green button" ng-click="submitForm()">
-              Confirm Attendance
+              Confirm Attendance: I'll be there!
               <i class="checkmark icon"></i>
             </button>
           </div>
