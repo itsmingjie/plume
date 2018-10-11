@@ -1,6 +1,9 @@
 #dashboard {
   .status {
     text-align: center;
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,.15);
+    border-top: solid $primary 3px;
+    border-radius: 0 0 8px 8px;
 
     p,
     .ng-binding {
