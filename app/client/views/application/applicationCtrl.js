@@ -171,6 +171,14 @@ angular.module('reg')
                             }]
                         },
 
+                        funFact: {
+                            identifier: 'funFact',
+                            rules: [{
+                                type: 'empty',
+                                prompt: 'Please tell us something interesting about you!'
+                            }]
+                        },
+
                         state: {
                             identifier: 'state',
                             rules: [{
