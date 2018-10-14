@@ -74,7 +74,8 @@ var confirmation = {
 	address: {
 		line1: String,
 		line2: String,
-		city: String
+		city: String,
+		zip: String
 	},
 
 	notes: String,
