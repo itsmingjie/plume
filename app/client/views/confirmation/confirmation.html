@@ -5,7 +5,11 @@
 
   <div class="ui stackable page grid">
     <div class="column">
-
+        <div class="ui message warning" ng-show="user.admin">
+            <p>You are an admin for the event. In order to make sure the statistic count generates accurate data,
+                we have disabled your application & confirmation pages.</p>
+            <p>Feel free to still use this page as a reference.</p>
+        </div>
       <div class="ui form">
 
         <div class="divided title">Basic Details</div>

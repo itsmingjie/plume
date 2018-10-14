@@ -201,10 +201,14 @@ angular.module('reg')
 
 
             $scope.submitForm = function () {
-                if ($('.ui.form').form('is valid')) {
-                    _updateUser();
+                if (!$scope.user.admin) {
+                    if ($('.ui.form').form('is valid')) {
+                        _updateUser();
+                    } else {
+                        sweetAlert("Uh oh!", "Please Fill The Required Fields", "error");
+                    }
                 } else {
-                    sweetAlert("Uh oh!", "Please Fill The Required Fields", "error");
+                    sweetAlert("No need!", "You are an admin for the event. In order to make sure the statistic count generates accurate data, we have disabled your application & confirmation pages.", "error");
                 }
             };
 

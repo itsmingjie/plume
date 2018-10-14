@@ -6,7 +6,7 @@ angular.module('reg')
     'currentUser',
     'Utils',
     'UserService',
-    function($scope, $rootScope, $state, currentUser, Utils, UserService){
+    function ($scope, $rootScope, $state, currentUser, Utils, UserService) {
 
       // Set up the user
       var user = currentUser.data;
@@ -31,9 +31,9 @@ angular.module('reg')
         'Nut Allergy': false
       };
 
-      if (user.confirmation.dietaryRestrictions){
-        user.confirmation.dietaryRestrictions.forEach(function(restriction){
-          if (restriction in dietaryRestrictions){
+      if (user.confirmation.dietaryRestrictions) {
+        user.confirmation.dietaryRestrictions.forEach(function (restriction) {
+          if (restriction in dietaryRestrictions) {
             dietaryRestrictions[restriction] = true;
           }
         });
@@ -43,12 +43,12 @@ angular.module('reg')
 
       // -------------------------------
 
-      function _updateUser(e){
+      function _updateUser(e) {
         var confirmation = $scope.user.confirmation;
         // Get the dietary restrictions as an array
         var drs = [];
-        Object.keys($scope.dietaryRestrictions).forEach(function(key){
-          if ($scope.dietaryRestrictions[key]){
+        Object.keys($scope.dietaryRestrictions).forEach(function (key) {
+          if ($scope.dietaryRestrictions[key]) {
             drs.push(key);
           }
         });
@@ -56,91 +56,84 @@ angular.module('reg')
 
         UserService
           .updateConfirmation(user._id, confirmation)
-          .success(function(data){
+          .success(function (data) {
             sweetAlert({
               title: "Woo!",
               text: "You're confirmed!",
               type: "success",
               confirmButtonColor: "#e76482"
-            }, function(){
+            }, function () {
               $state.go('app.dashboard');
             });
           })
-          .error(function(res){
+          .error(function (res) {
             sweetAlert("Uh oh!", "Something went wrong.", "error");
           });
       }
 
-      function _setupForm(){
+      function _setupForm() {
         // Semantic-UI form validation
         $('.ui.form').form({
           fields: {
             shirt: {
               identifier: 'shirt',
-              rules: [
-                {
-                  type: 'empty',
-                  prompt: 'Please give us a shirt size!'
-                }
-              ]
+              rules: [{
+                type: 'empty',
+                prompt: 'Please give us a shirt size!'
+              }]
             },
             phone: {
               identifier: 'phone',
-              rules: [
-                {
-                  type: 'empty',
-                  prompt: 'Please enter a phone number.'
-                }
-              ]
+              rules: [{
+                type: 'empty',
+                prompt: 'Please enter a phone number.'
+              }]
             },
             signatureWaiver: {
               identifier: 'signatureWaiver',
-              rules: [
-                {
-                  type: 'empty',
-                  prompt: 'Please type your digital signature.'
-                }
-              ]
+              rules: [{
+                type: 'empty',
+                prompt: 'Please type your digital signature.'
+              }]
             },
 
             emergencyContactName: {
               identifier: 'emergencyContactName1',
-              rules: [
-                {
-                  type: 'empty',
-                  prompt: 'Please provide the complete information of at least 1 emergency contact'
-                }
-              ]
+              rules: [{
+                type: 'empty',
+                prompt: 'Please provide the complete information of at least 1 emergency contact'
+              }]
             },
 
             emergencyContactRel: {
               identifier: 'emergencyContactRel1',
-              rules: [
-                {
-                  type: 'empty',
-                  prompt: 'Please provide the complete information of at least 1 emergency contact'
-                }
-              ]
+              rules: [{
+                type: 'empty',
+                prompt: 'Please provide the complete information of at least 1 emergency contact'
+              }]
             },
 
             emergencyContactPhone: {
               identifier: 'emergencyContactPhone1',
-              rules: [
-                {
-                  type: 'empty',
-                  prompt: 'Please provide the complete information of at least 1 emergency contact'
-                }
-              ]
+              rules: [{
+                type: 'empty',
+                prompt: 'Please provide the complete information of at least 1 emergency contact'
+              }]
             },
 
           }
         });
       }
 
-      $scope.submitForm = function(){
-        if ($('.ui.form').form('is valid')){
-          _updateUser();
+      $scope.submitForm = function () {
+        if (!$scope.user.admin) {
+          if ($('.ui.form').form('is valid')) {
+            _updateUser();
+          }
+        } else {
+          sweetAlert("No need!", "You are an admin for the event. In order to make sure the statistic count generates accurate data, we have disabled your application & confirmation pages.", "error");
         }
       };
 
-    }]);
+    }
+  ]);
