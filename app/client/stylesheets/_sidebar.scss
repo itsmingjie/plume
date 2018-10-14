@@ -6,6 +6,8 @@
   width: $sidebar-width;
   z-index: 999;
   overflow: auto;
+  box-shadow: 6px 0 12px 0 rgba(0,0,0,.15);
+  border-radius: 0 8px 8px 0;
 
   @include transition-duration($sidebar-transition-time);
 

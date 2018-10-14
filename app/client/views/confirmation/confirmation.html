@@ -81,7 +81,7 @@
             </div>
           </div>
 
-          <div ng-show="user.confirmation.needsTransportation">
+          <div class="ui message" ng-show="user.confirmation.needsTransportation">
 
             <div class="ui header">
               Address
@@ -135,7 +135,7 @@
                 <strong>If you are under 18, we request that you ask your parent/guardian to sign this waiver on your behalf.</strong>
             </p>
             <p>
-              By writing my name below, I affirm that I have read and accepted the terms of all forms mentioned above.
+              By writing my name below, I affirm that I have read and accepted the terms of all forms mentioned above. (Required)
             </p>
             <input type="text" name="signatureWaiver" placeholder="Full Legal Name of Attendee/Parent/Guardian (Whichever Applies)" ng-model="user.confirmation.signatureWaiver">
           </div>
@@ -165,7 +165,7 @@
                 <input type="text" name="emergencyContactRel1" ng-model="user.confirmation.emergency.primary.relationship" placeholder="Mother/Father/etc.">
               </div>
               <div class="field">
-                  <label> ZIP </label>
+                  <label> Phone </label>
                   <input type="tel" name="emergencyContactPhone1" ng-model="user.confirmation.emergency.primary.phone" placeholder="(123) - 555 - 1234">
                 </div>
             </div>
@@ -182,7 +182,7 @@
                   <input type="text" name="emergencyContactRel2" ng-model="user.confirmation.emergency.secondary.relationship" placeholder="Mother/Father/etc.">
                 </div>
                 <div class="field">
-                    <label> ZIP </label>
+                    <label> Phone </label>
                     <input type="tel" name="emergencyContactPhone2" ng-model="user.confirmation.emergency.secondary.phone" placeholder="(123) - 555 - 1234">
                   </div>
               </div>

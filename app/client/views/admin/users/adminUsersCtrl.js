@@ -4,10 +4,31 @@ angular.module('reg')
     '$state',
     '$stateParams',
     'UserService',
-    function($scope, $state, $stateParams, UserService){
+    'SettingsService',
+    function($scope, $state, $stateParams, UserService, SettingsService){
 
       $scope.pages = [];
       $scope.users = [];
+
+      /* All this crap just to load a Settings config variable FML */
+      $scope.settings = {};
+
+      $scope.settings = {};
+      SettingsService
+        .getPublicSettings()
+        .success(function(settings){
+          updateSettings(settings);
+        });
+
+      function updateSettings(settings){
+        $scope.loading = false;
+         // Format the dates in settings.
+        settings.timeOpen = new Date(settings.timeOpen);
+        settings.timeClose = new Date(settings.timeClose);
+        settings.timeConfirm = new Date(settings.timeConfirm);
+
+        $scope.settings = settings;
+      }
 
       // Semantic-UI moves modal content into a dimmer at the top level.
       // While this is usually nice, it means that with our routing will generate
@@ -96,37 +117,45 @@ angular.module('reg')
       $scope.acceptUser = function($event, user, index) {
         $event.stopPropagation();
 
-        swal({
-          title: "Whoa, wait a minute!",
-          text: "You are about to accept " + user.profile.name + "!",
-          type: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#DD6B55",
-          confirmButtonText: "Yes, accept them.",
-          closeOnConfirm: false
-          }, function(){
-
+        if (user.status.admitted) {
             swal({
-              title: "Are you sure?",
-              text: "Your account will be logged as having accepted this user. " +
-                "Remember, this power is a privilege.",
+              title: "No need!",
+              text: "This student has already been admitted.",
+              type: "info",
+            })
+        } else {
+            swal({
+              title: "Whoa, wait a minute!",
+              text: "You are about to accept " + user.profile.name + "!",
               type: "warning",
               showCancelButton: true,
               confirmButtonColor: "#DD6B55",
-              confirmButtonText: "Yes, accept this user.",
+              confirmButtonText: "Yes, accept them.",
               closeOnConfirm: false
               }, function(){
 
-                UserService
-                  .admitUser(user._id)
-                  .success(function(user){
-                    $scope.users[index] = user;
-                    swal("Accepted", user.profile.name + ' has been admitted.', "success");
+                swal({
+                  title: "Are you sure?",
+                  text: "Your account will be logged as having accepted this user. " +
+                    "Remember, this power is a privilege.",
+                  type: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#DD6B55",
+                  confirmButtonText: "Yes, accept this user.",
+                  closeOnConfirm: false
+                  }, function(){
+
+                    UserService
+                      .admitUser(user._id)
+                      .success(function(user){
+                        $scope.users[index] = user;
+                        swal("Accepted", user.profile.name + ' has been admitted.', "success");
+                      });
+
                   });
 
               });
-
-          });
+            }
 
       };
 

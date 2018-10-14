@@ -398,9 +398,9 @@ module.exports = function(router) {
    * res: Settings
    *
    */
-  router.put('/settings/minors', isAdmin, function(req, res){
-    var allowMinors = req.body.allowMinors;
-    SettingsController.updateField('allowMinors', allowMinors, defaultResponse(req, res));
+  router.put('/settings/isDayOf', isAdmin, function(req, res){
+    var isDayOf = req.body.isDayOf;
+    SettingsController.updateField('isDayOf', isDayOf, defaultResponse(req, res));
   });
 
 };

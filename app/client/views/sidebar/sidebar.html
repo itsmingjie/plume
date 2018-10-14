@@ -4,17 +4,22 @@
   </div>
 
   <div ui-sref-active="active" ui-sref="app.dashboard" class="item">
-    Dashboard
+      <i class="icon home"></i>
+      Dashboard
   </div>
 
   <div ng-show="currentUser.verified">
 
     <div ui-sref-active="active" ui-sref="app.application" ng-show="!currentUser.status.declined" class="item">
+      <i class="icon check circle" ng-show="currentUser.status.completedProfile"></i>
+      <i class="icon dot circle outline" ng-show="!currentUser.status.completedProfile"></i>
       Application
     </div>
 
     <div ui-sref-active="active" ui-sref="app.confirmation" ng-show="!pastConfirmation && currentUser.status.admitted && !currentUser.status.declined"
       class="item">
+      <i class="icon check circle" ng-show="currentUser.status.confirmed"></i>
+      <i class="icon dot circle outline" ng-show="!currentUser.status.confirmed"></i>
       Confirmation
     </div>
 
@@ -27,12 +32,14 @@
     </div> -->
 
     <div ui-sref-active="active" ui-sref="app.admin.stats" class="item" ng-show="currentUser.admin">
+      <i class="icon key"></i>
       Admin
     </div>
 
   </div>
 
   <div class="item" ng-click="logout()">
+    <i class="icon sign out alternate"></i>
     Logout
   </div>
 

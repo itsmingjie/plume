@@ -74,7 +74,8 @@ var confirmation = {
 	address: {
 		line1: String,
 		line2: String,
-		city: String
+		city: String,
+		zip: String
 	},
 
 	notes: String,
@@ -97,7 +98,9 @@ var confirmation = {
 
 		// medical considerations
 		medCons: String,
-	}
+	},
+
+	staffNotes: String
 };
 
 var status = {
@@ -163,6 +166,12 @@ var schema = new mongoose.Schema({
 	},
 
 	admin: {
+		type: Boolean,
+		required: true,
+		default: false
+	},
+
+	superAdmin: {
 		type: Boolean,
 		required: true,
 		default: false
