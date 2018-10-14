@@ -43,9 +43,9 @@ angular.module('reg')
           text: text
         });
       },
-      updateAllowMinors: function(allowMinors){
-        return $http.put(base + 'minors', { 
-          allowMinors: allowMinors 
+      updateIsDayOf: function(isDayOf){
+        return $http.put(base + 'isDayOf', {
+          isDayOf: isDayOf
         });
       },
     };

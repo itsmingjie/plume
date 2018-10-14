@@ -1,34 +1,22 @@
 <div id="admin" class="page">
   <div class="divided title">
-  GOD MODE
+    GOD MODE
   </div>
 
   <div class="ui three item menu">
-    <a
-      class="item"
-      ui-sref="app.admin.stats"
-      ui-sref-active="active">
+    <a class="item" ui-sref="app.admin.stats" ui-sref-active="active">
       Stats
     </a>
 
-    <a
-      class="item"
-      ui-sref="app.admin.users"
-      ui-sref-active="active">
+    <a class="item" ui-sref="app.admin.users" ui-sref-active="active">
       Users
     </a>
 
-    <a
-      class="item"
-      ui-sref="app.admin.settings"
-      ui-sref-active="active">
+    <a class="item" ui-sref="app.admin.settings" ui-sref-active="active" ng-show="currentUser.superAdmin">
       Settings
     </a>
 
-    <a
-      class="item"
-      ui-sref="app.admin.support"
-      ui-sref-active="active">
+    <a class="item" ui-sref="app.admin.support" ui-sref-active="active">
       Support
     </a>
   </div>

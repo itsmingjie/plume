@@ -171,6 +171,12 @@ var schema = new mongoose.Schema({
 		default: false
 	},
 
+	superAdmin: {
+		type: Boolean,
+		required: true,
+		default: false
+	},
+
 	timestamp: {
 		type: Number,
 		required: true,
