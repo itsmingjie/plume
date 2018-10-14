@@ -83,25 +83,49 @@
       <table class="ui celled selectable compact users table">
         <thead>
           <tr>
+            <th></th>
+            <th>Op</th>
             <th>Name</th>
             <th>E-mail address</th>
             <th>School</th>
             <th>Grad</th>
             <th>V/S/A/C</th>
             <th>Edit</th>
-            <th>Op</th>
             <th ng-show="currentUser.superAdmin && !settings.isDayOf">SA</th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-click="selectUser(user)" ng-repeat="user in users" ng-class="rowClass(user)">
+          <tr ng-click="goUser($event, user)" ng-repeat="user in users" ng-class="rowClass(user)">
+            <td>
+              <i class="orange spy icon" ng-if="user.admin"></i>
+            </td>
+
+            <td class="right aligned collapsing">
+              <div ng-show="!settings.isDayOf">
+                <button class="accept ui circular mini basic green icon button" ng-if="!user.status.admitted" ng-click="acceptUser($event, user, $index)">
+                  <i class="heart outline icon"></i>
+                </button>
+
+                <button class="accept ui circular mini basic green icon button" ng-if="user.status.admitted" ng-click="acceptUser($event, user, $index)">
+                  <i class="green heart icon"></i>
+                </button>
+              </div>
+
+              <button ng-click="toggleCheckIn($event, user, $index)" ng-show="settings.isDayOf" class="ui circular mini basic green icon button">
+
+                <i ng-if="!user.status.checkedIn" class="check outline icon"></i>
+
+                <i ng-if="user.status.checkedIn" class="green check icon"></i>
+
+              </button>
+            </td>
+
             <td>
               <strong>
-                <i ng-if="user.admin" class="orange spy icon"></i>&ensp;
                 {{user.profile.name}}
-                &nbsp;
               </strong>
             </td>
+            
             <td>{{user.email}}</td>
             <td>{{user.profile.school}}</td>
             <td class="collapsing">
@@ -142,26 +166,6 @@
             <td class="collapsing">
               <button ng-click="goUser($event, user)" class="ui circular mini basic icon button">
                 <i class="pencil icon"></i>
-              </button>
-            </td>
-
-            <td class="right aligned collapsing">
-              <div ng-show="!settings.isDayOf">
-                <button class="accept ui circular mini basic green icon button" ng-if="!user.status.admitted" ng-click="acceptUser($event, user, $index)">
-                  <i class="heart outline icon"></i>
-                </button>
-
-                <button class="accept ui circular mini basic green icon button" ng-if="user.status.admitted" ng-click="acceptUser($event, user, $index)">
-                  <i class="green heart icon"></i>
-                </button>
-              </div>
-
-              <button ng-click="toggleCheckIn($event, user, $index)" ng-show="settings.isDayOf" class="ui circular mini basic green icon button">
-
-                <i ng-if="!user.status.checkedIn" class="check outline icon"></i>
-
-                <i ng-if="user.status.checkedIn" class="green check icon"></i>
-
               </button>
             </td>
             <td ng-show="currentUser.superAdmin && !settings.isDayOf">
