@@ -96,37 +96,45 @@ angular.module('reg')
       $scope.acceptUser = function($event, user, index) {
         $event.stopPropagation();
 
-        swal({
-          title: "Whoa, wait a minute!",
-          text: "You are about to accept " + user.profile.name + "!",
-          type: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#DD6B55",
-          confirmButtonText: "Yes, accept them.",
-          closeOnConfirm: false
-          }, function(){
-
+        if (user.status.admitted) {
             swal({
-              title: "Are you sure?",
-              text: "Your account will be logged as having accepted this user. " +
-                "Remember, this power is a privilege.",
+              title: "No need!",
+              text: "This student has already been admitted.",
+              type: "info",
+            })
+        } else {
+            swal({
+              title: "Whoa, wait a minute!",
+              text: "You are about to accept " + user.profile.name + "!",
               type: "warning",
               showCancelButton: true,
               confirmButtonColor: "#DD6B55",
-              confirmButtonText: "Yes, accept this user.",
+              confirmButtonText: "Yes, accept them.",
               closeOnConfirm: false
               }, function(){
 
-                UserService
-                  .admitUser(user._id)
-                  .success(function(user){
-                    $scope.users[index] = user;
-                    swal("Accepted", user.profile.name + ' has been admitted.', "success");
+                swal({
+                  title: "Are you sure?",
+                  text: "Your account will be logged as having accepted this user. " +
+                    "Remember, this power is a privilege.",
+                  type: "warning",
+                  showCancelButton: true,
+                  confirmButtonColor: "#DD6B55",
+                  confirmButtonText: "Yes, accept this user.",
+                  closeOnConfirm: false
+                  }, function(){
+
+                    UserService
+                      .admitUser(user._id)
+                      .success(function(user){
+                        $scope.users[index] = user;
+                        swal("Accepted", user.profile.name + ' has been admitted.', "success");
+                      });
+
                   });
 
               });
-
-          });
+            }
 
       };
 

@@ -98,7 +98,9 @@ var confirmation = {
 
 		// medical considerations
 		medCons: String,
-	}
+	},
+
+	staffNotes: String
 };
 
 var status = {

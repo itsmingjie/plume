@@ -96,8 +96,6 @@
             <th>School</th>
             <th>Grad</th>
             <th>V/S/A/C</th>
-            <th>Host</th>
-            <th>$</th>
             <th></th>
             <th></th>
           </tr>
@@ -173,47 +171,12 @@
 
             </td>
 
-            <!-- Host -->
-            <td
-              class="collapsing">
-
-              <span ng-if="user.status.confirmed">
-                <i
-                  ng-if="user.confirmation.hostNeededFri"
-                  class="home icon">
-                </i>
-                <i
-                  ng-if="!user.confirmation.hostNeededFri && user.confirmation.hostNeededSat"
-                  class="no icon">
-                </i>
-                <i
-                  ng-if="user.confirmation.hostNeededSat"
-                  class="home icon">
-                </i>
-              </span>
-
-            </td>
-
-            <td
-              class="collapsing">
-              <span ng-if="user.status.confirmed">
-                <i
-                  ng-if="user.confirmation.needsReimbursement && !user.status.reimbursementGiven"
-                  class="red money icon">
-                </i>
-                <i
-                  ng-if="user.confirmation.needsReimbursement && user.status.reimbursementGiven"
-                  class="green money icon">
-                </i>
-              </span>
-            </td>
-
             <td
               class="collapsing">
               <button
                 ng-click="goUser($event, user)"
                 class="ui circular mini basic icon button">
-                <i class="linkify icon"></i>
+                <i class="pencil icon"></i>
               </button>
             </td>
 
@@ -222,8 +185,16 @@
 
               <button
                 class="accept ui circular mini basic green icon button"
+                ng-if="!user.status.admitted"
                 ng-click="acceptUser($event, user, $index)">
-                <i class="add user icon"></i>
+                <i class="heart outline icon"></i>
+              </button>
+
+              <button
+                class="accept ui circular mini basic green icon button"
+                ng-if="user.status.admitted"
+                ng-click="acceptUser($event, user, $index)">
+                <i class="green heart icon"></i>
               </button>
 
               <button
@@ -232,15 +203,15 @@
 
                 <i
                   ng-if="!user.status.checkedIn"
-                  class="flag outline icon"></i>
+                  class="check outline icon"></i>
 
                 <i
                   ng-if="user.status.checkedIn"
-                  class="green flag icon"></i>
+                  class="green check icon"></i>
 
               </button>
 
-              <button
+              <!--<button
                 ng-click="toggleAdmin($event, user, $index)"
                 class="ui circular mini basic green icon button">
 
@@ -252,7 +223,7 @@
                   ng-if="user.admin"
                   class="green spy icon"></i>
 
-              </button>
+              </button>-->
 
             </td>
           </tr>
