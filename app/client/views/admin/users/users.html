@@ -97,9 +97,9 @@
           <tr ng-click="selectUser(user)" ng-repeat="user in users" ng-class="rowClass(user)">
             <td>
               <strong>
+                <i ng-if="user.admin" class="orange spy icon"></i>&ensp;
                 {{user.profile.name}}
                 &nbsp;
-
               </strong>
             </td>
             <td>{{user.email}}</td>
