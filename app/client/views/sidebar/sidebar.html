@@ -10,16 +10,18 @@
 
   <div ng-show="currentUser.verified">
 
-    <div ui-sref-active="active" ui-sref="app.application" ng-show="!currentUser.status.declined" class="item">
+    <div ui-sref-active="active" ui-sref="app.application" ng-show="!currentUser.status.declined || currentUser.admin" class="item">
       <i class="icon check circle" ng-show="currentUser.status.completedProfile"></i>
-      <i class="icon dot circle outline" ng-show="!currentUser.status.completedProfile"></i>
+      <i class="icon dot circle outline" ng-show="!currentUser.status.completedProfile && !currentUser.admin"></i>
+      <i class="icon eye" ng-show="currentUser.admin"></i>
       Application
     </div>
 
-    <div ui-sref-active="active" ui-sref="app.confirmation" ng-show="!pastConfirmation && currentUser.status.admitted && !currentUser.status.declined"
+    <div ui-sref-active="active" ui-sref="app.confirmation" ng-show="!pastConfirmation && currentUser.status.admitted && !currentUser.status.declined || currentUser.admin"
       class="item">
       <i class="icon check circle" ng-show="currentUser.status.confirmed"></i>
-      <i class="icon dot circle outline" ng-show="!currentUser.status.confirmed"></i>
+      <i class="icon dot circle outline" ng-show="!currentUser.status.confirmed && !currentUser.admin"></i>
+      <i class="icon eye" ng-show="currentUser.admin"></i>
       Confirmation
     </div>
 
